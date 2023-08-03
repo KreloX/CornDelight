@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "farmersdelight:block/crate_bottom",
+    "side": "corndelight:block/corn_crate_side",
+    "top": "corndelight:block/corn_crate_top"
+  }
+}

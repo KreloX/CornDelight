@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "corndelight:nachos_block",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "servings": "4"
+                  }
+                }
+              ],
+              "name": "corndelight:nachos_block"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:stick"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
