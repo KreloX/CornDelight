@@ -25,15 +25,11 @@ public class PopcornBoxBlock extends FeastBlock {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient()) {
-            if (this.takeServing(world, pos, state, player, hand).isAccepted()) {
-                return ActionResult.SUCCESS;
-            }
-        }
-        return this.takeServing(world, pos, state, player, hand);
+        return world.isClient() && this.takeServing(world, pos, state, player).isAccepted() ?
+                ActionResult.SUCCESS : this.takeServing(world, pos, state, player);
     }
 
-    public ActionResult takeServing(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
+    public ActionResult takeServing(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         int servings = state.get(SERVINGS);
 
         if (servings == 0) {
@@ -43,25 +39,25 @@ public class PopcornBoxBlock extends FeastBlock {
         }
 
         ItemStack serving = new ItemStack(CornDelightItems.CARAMEL_POPCORN);
-        ItemStack heldStack = player.getStackInHand(hand);
+        ItemStack heldStack = player.getMainHandStack();
 
         if (servings > 0) {
-            if (heldStack.isEmpty()) {
-                world.setBlockState(pos, state.with(SERVINGS, servings - 1), 3);
-                if (!player.getInventory().insertStack(serving)) {
-                    player.dropItem(serving, false);
-                }
-                if (world.getBlockState(pos).get(SERVINGS) == 0) {
-                    if (!player.getInventory().insertStack(new ItemStack(Items.PAPER))) {
-                        player.dropItem(new ItemStack(Items.PAPER), false);
-                    }
-                    world.removeBlock(pos, false);
-                }
-                world.playSound(null, pos, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                return ActionResult.SUCCESS;
-            } else {
-                player.sendMessage(Text.translatable(CornDelight.MODID + ".block.popcorn.bearhand", serving.getItem().getRecipeRemainder().getName()), true);
+            if (!heldStack.isEmpty()) {
+                player.sendMessage(Text.translatable(CornDelight.MODID + ".block.popcorn.barehand"), true);
+                return ActionResult.PASS;
             }
+            world.setBlockState(pos, state.with(SERVINGS, servings - 1), 3);
+            if (!player.getInventory().insertStack(serving)) {
+                player.dropItem(serving, false);
+            }
+            if (world.getBlockState(pos).get(SERVINGS) == 0) {
+                if (!player.getInventory().insertStack(new ItemStack(Items.PAPER))) {
+                    player.dropItem(new ItemStack(Items.PAPER), false);
+                }
+                world.removeBlock(pos, false);
+            }
+            world.playSound(null, pos, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
     }

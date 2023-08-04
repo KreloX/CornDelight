@@ -19,6 +19,9 @@
 		"main": [
 			"krelox.corndelight.CornDelight"
 		],
+		"client": [
+			"krelox.corndelight.CornDelightClient"
+		],
 		"fabric-datagen": [
 			"krelox.corndelight.CornDelightDataGenerator"
 		]

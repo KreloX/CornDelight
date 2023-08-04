@@ -1,5 +1,6 @@
 package krelox.corndelight;
 
+import krelox.corndelight.data.CornDelightLang;
 import krelox.corndelight.data.CornDelightLoot;
 import krelox.corndelight.data.CornDelightModels;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -10,6 +11,7 @@ public class CornDelightDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
 
+        pack.addProvider(CornDelightLang::new);
         pack.addProvider(CornDelightLoot::new);
         pack.addProvider(CornDelightModels::new);
     }

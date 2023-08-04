@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "corndelight:block/corn_crop_top_stage5"
+  }
+}

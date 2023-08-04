@@ -1,5 +1,6 @@
 package krelox.corndelight.item;
 
+import com.nhoryzon.mc.farmersdelight.item.ConsumableItem;
 import com.nhoryzon.mc.farmersdelight.item.DrinkableItem;
 import com.nhoryzon.mc.farmersdelight.registry.EffectsRegistry;
 import krelox.corndelight.CornDelight;
@@ -41,17 +42,17 @@ public class CornDelightItems {
             new Item(foodSettings(5, 0.6F)));
 
     public static final Item CREAMED_CORN = registerItem("creamed_corn",
-            new Item(foodSettings(7, 0.5F, Items.BOWL,
-                    new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600))));
+            new ConsumableItem(foodSettings(7, 0.5F, Items.BOWL,
+                    new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600)), true));
 
     public static final Item CORN_SOUP = registerItem("corn_soup",
-            new Item(foodSettings(10, 0.9F, Items.BOWL,
-                    new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600))));
+            new ConsumableItem(foodSettings(10, 0.9F, Items.BOWL,
+                    new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600)), true));
 
     public static final Item CREAMY_CORN_DRINK = registerItem("creamy_corn_drink",
             new DrinkableItem(foodSettings(2, 0.6F, Items.GLASS_BOTTLE,
                     new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 1200),
-                    new StatusEffectInstance(StatusEffects.REGENERATION, 1200))));
+                    new StatusEffectInstance(StatusEffects.REGENERATION, 1200)), true));
 
     public static final Item CORNBREAD_BATTER = registerItem("cornbread_batter",
             new Item(foodSettings(1, 0.2F)));
@@ -60,10 +61,10 @@ public class CornDelightItems {
             new Item(foodSettings(4, 0.5F)));
 
     public static final Item CORN_DOG = registerItem("corn_dog",
-            new Item(foodSettings(8, 0.9F, Items.STICK)));
+            new ConsumableItem(foodSettings(8, 0.9F, Items.STICK)));
 
     public static final Item CLASSIC_CORN_DOG = registerItem("classic_corn_dog",
-            new Item(foodSettings(10, 0.9F, Items.STICK)));
+            new ConsumableItem(foodSettings(10, 0.9F, Items.STICK)));
 
     public static final Item RAW_TORTILLA = registerItem("raw_tortilla",
             new Item(foodSettings(1, 0.2F)));
@@ -72,19 +73,19 @@ public class CornDelightItems {
             new Item(foodSettings(3, 0.4F)));
 
     public static final Item TACO = registerItem("taco",
-            new Item(foodSettings(12, 0.8F,
-                    new StatusEffectInstance(StatusEffects.STRENGTH, 600, 0))));
+            new ConsumableItem(foodSettings(12, 0.8F,
+                    new StatusEffectInstance(StatusEffects.STRENGTH, 600, 0)), true));
 
     public static final Item CORNBREAD_STUFFING = registerItem("cornbread_stuffing",
-            new Item(foodSettings(12, 1F, Items.BOWL,
-                    new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000, 0))));
+            new ConsumableItem(foodSettings(12, 1F, Items.BOWL,
+                    new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000, 0)), true));
 
     public static final Item TORTILLA_CHIP = registerItem("tortilla_chip",
             new Item(foodSettings(1, 0.1F)));
 
-    public static final Item NACHOS = registerItem("nachos",
-            new Item(foodSettings(12, 1F, Items.BOWL,
-                    new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000))));
+    public static final Item NACHOS_BOWL = registerItem("nachos_bowl",
+            new ConsumableItem(foodSettings(12, 1F, Items.BOWL,
+                    new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000)), true));
 
     private static Item.Settings foodSettings(int hunger, float saturation, StatusEffectInstance... effects) {
         return foodSettings(hunger, saturation, null, effects);

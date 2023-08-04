@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "corndelight:item/creamy_corn_drink"
+  }
+}
