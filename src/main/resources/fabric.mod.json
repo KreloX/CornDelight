@@ -5,14 +5,16 @@
 	"name": "Corn Delight",
 	"description": "Port of Corn Delight to Fabric and Quilt",
 	"authors": [
-		"KreloX"
+		"KreloX",
+		"sz0999312",
+		"yuriscat"
 	],
 	"contact": {
 		"homepage": "https://legacy.curseforge.com/minecraft/mc-mods/corn-delight-fabric",
 		"sources": "https://github.com/KreloX/CornDelight",
 		"issues": "https://github.com/KreloX/CornDelight/issues"
 	},
-	"license": "MIT License",
+	"license": "MIT",
 	"icon": "assets/corndelight/icon.png",
 	"environment": "*",
 	"entrypoints": {
