@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "corndelight:cornbread_batter"
+    },
+    [
+      {
+        "item": "minecraft:cooked_chicken"
+      },
+      {
+        "item": "minecraft:cooked_beef"
+      },
+      {
+        "item": "minecraft:cooked_mutton"
+      },
+      {
+        "item": "minecraft:cooked_porkchop"
+      }
+    ]
+  ],
+  "result": {
+    "item": "corndelight:corn_dog"
+  },
+  "experience": 0.5,
+  "cookingtime": 100
+}

@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "corndelight:corn"
+    },
+    {
+      "tag": "c:crops/cabbage"
+    },
+    [
+      {
+        "item": "minecraft:cooked_chicken"
+      },
+      {
+        "item": "minecraft:cooked_beef"
+      },
+      {
+        "item": "minecraft:cooked_porkchop"
+      },
+      {
+        "item": "minecraft:brown_mushroom"
+      }
+    ],
+    {
+      "tag": "c:milk_buckets"
+    }
+  ],
+  "result": {
+    "item": "corndelight:corn_soup"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

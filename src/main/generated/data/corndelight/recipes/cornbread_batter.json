@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "corndelight:corn"
+    },
+    {
+      "item": "corndelight:corn"
+    },
+    {
+      "tag": "c:milk"
+    },
+    {
+      "tag": "c:eggs"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "corndelight:cornbread_batter"
+  }
+}

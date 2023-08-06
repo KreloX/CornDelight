@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "corndelight:corn"
+    },
+    {
+      "tag": "c:milk"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "corndelight:creamy_corn_drink"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -36,9 +36,9 @@ public class CornDelightLoot extends FabricBlockLootTableProvider {
         addDrop(CornDelightBlocks.CORN_CRATE, this::drops);
         addDrop(CornDelightBlocks.CORN_KERNEL_BAG, this::drops);
 
-        BlockStatePropertyLootCondition.Builder nachos_builder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS_BLOCK)
+        BlockStatePropertyLootCondition.Builder nachos_builder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS)
                 .properties(StatePredicate.Builder.create().exactMatch(FeastBlock.SERVINGS, 4));
-        addDrop(CornDelightBlocks.NACHOS_BLOCK, block -> applyExplosionDecay(block, LootTable.builder()
+        addDrop(CornDelightBlocks.NACHOS, block -> applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachos_builder)
                         .alternatively(ItemEntry.builder(Items.STICK))))));
     }

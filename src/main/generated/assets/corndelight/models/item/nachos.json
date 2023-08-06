@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "corndelight:item/nachos_block"
+    "layer0": "corndelight:item/nachos"
   }
 }

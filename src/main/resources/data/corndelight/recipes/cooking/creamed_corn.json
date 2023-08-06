@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "corndelight:corn_seeds"
+    },
+    {
+      "item": "corndelight:corn_seeds"
+    },
+    {
+      "tag": "c:milk"
+    }
+  ],
+  "result": {
+    "item": "corndelight:creamed_corn"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

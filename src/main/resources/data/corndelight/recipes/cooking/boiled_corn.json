@@ -1,0 +1,13 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "corndelight:corn"
+    }
+  ],
+  "result": {
+    "item": "corndelight:boiled_corn"
+  },
+  "experience": 0.15,
+  "cookingtime": 100
+}

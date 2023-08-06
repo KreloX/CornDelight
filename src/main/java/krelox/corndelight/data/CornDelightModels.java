@@ -53,7 +53,7 @@ public class CornDelightModels extends FabricModelProvider {
                 itemModelGenerator.register(item, Models.GENERATED);
         }
         itemModelGenerator.register(CornDelightItems.CORN_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(CornDelightBlocks.NACHOS_BLOCK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(CornDelightItems.NACHOS, Models.GENERATED);
         itemModelGenerator.register(CornDelightBlocks.POPCORN_BOX.asItem(), new Model(Optional.of(new Identifier(CornDelight.MODID,
                 "block/popcorn_box_stage0")), Optional.empty()));
     }

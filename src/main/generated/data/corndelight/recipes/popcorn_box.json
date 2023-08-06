@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "corndelight:caramel_popcorn"
+    },
+    {
+      "item": "corndelight:caramel_popcorn"
+    },
+    {
+      "item": "corndelight:caramel_popcorn"
+    },
+    {
+      "item": "corndelight:caramel_popcorn"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "item": "corndelight:popcorn_box"
+  }
+}

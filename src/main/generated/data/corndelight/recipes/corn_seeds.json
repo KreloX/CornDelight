@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "corndelight:corn_kernel_bag"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "corndelight:corn_seeds"
+  }
+}
