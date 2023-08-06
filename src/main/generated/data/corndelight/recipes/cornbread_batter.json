@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "corndelight:corn"
+      "tag": "c:crops/corn"
     },
     {
-      "item": "corndelight:corn"
+      "tag": "c:crops/corn"
     },
     {
       "tag": "c:milk"

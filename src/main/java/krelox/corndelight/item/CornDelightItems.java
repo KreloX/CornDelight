@@ -24,22 +24,22 @@ public class CornDelightItems {
             new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1)));
 
     public static final Item CORN = registerItem("corn",
-            new ConsumableItem(foodSettings(foodBuilder(2, 0.2F))));
+            new Item(foodSettings(foodBuilder(2, 0.2F))));
 
     public static final Item CORN_SEEDS = registerItem("corn_seeds",
             new AliasedBlockItem(CornDelightBlocks.CORN_CROP, foodSettings(foodBuilder(1, 0.2F))));
 
     public static final Item GRILLED_CORN = registerItem("grilled_corn",
-            new ConsumableItem(foodSettings(foodBuilder(6, 0.2F))));
+            new Item(foodSettings(foodBuilder(6, 0.2F))));
 
     public static final Item BOILED_CORN = registerItem("boiled_corn",
-            new ConsumableItem(foodSettings(foodBuilder(6, 0.2F))));
+            new Item(foodSettings(foodBuilder(6, 0.2F))));
 
     public static final Item POPCORN = registerItem("popcorn",
-            new ConsumableItem(foodSettings(foodBuilder(3, 0.5F))));
+            new Item(foodSettings(foodBuilder(3, 0.5F))));
 
     public static final Item CARAMEL_POPCORN = registerItem("caramel_popcorn",
-            new ConsumableItem(foodSettings(foodBuilder(5, 0.6F))));
+            new Item(foodSettings(foodBuilder(5, 0.6F))));
 
     public static final Item CREAMED_CORN = registerItem("creamed_corn",
             new ConsumableItem(foodSettings(foodBuilder(7, 0.5F)
@@ -58,22 +58,22 @@ public class CornDelightItems {
                     .maxCount(16).recipeRemainder(Items.GLASS_BOTTLE), true));
 
     public static final Item CORNBREAD_BATTER = registerItem("cornbread_batter",
-            new ConsumableItem(foodSettings(foodBuilder(1, 0.2F))));
+            new Item(foodSettings(foodBuilder(1, 0.2F))));
 
     public static final Item CORNBREAD = registerItem("cornbread",
-            new ConsumableItem(foodSettings(foodBuilder(4, 0.5F))));
+            new Item(foodSettings(foodBuilder(4, 0.5F))));
 
     public static final Item CORN_DOG = registerItem("corn_dog",
-            new ConsumableItem(foodSettings(foodBuilder(8, 0.9F))));
+            new Item(foodSettings(foodBuilder(8, 0.9F))));
 
     public static final Item CLASSIC_CORN_DOG = registerItem("classic_corn_dog",
-            new ConsumableItem(foodSettings(foodBuilder(10, 0.9F))));
+            new Item(foodSettings(foodBuilder(10, 0.9F))));
 
     public static final Item RAW_TORTILLA = registerItem("raw_tortilla",
-            new ConsumableItem(foodSettings(foodBuilder(1, 0.2F))));
+            new Item(foodSettings(foodBuilder(1, 0.2F))));
 
     public static final Item TORTILLA = registerItem("tortilla",
-            new ConsumableItem(foodSettings(foodBuilder(3, 0.4F))));
+            new Item(foodSettings(foodBuilder(3, 0.4F))));
 
     public static final Item TACO = registerItem("taco",
             new ConsumableItem(foodSettings(foodBuilder(12, 0.8F)
@@ -85,7 +85,7 @@ public class CornDelightItems {
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item TORTILLA_CHIP = registerItem("tortilla_chip",
-            new ConsumableItem(foodSettings(foodBuilder(1, 0.1F))));
+            new Item(foodSettings(foodBuilder(1, 0.1F))));
 
     public static final Item NACHOS_BOWL = registerItem("nachos_bowl",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)

@@ -2,7 +2,7 @@
   "type": "farmersdelight:cooking",
   "ingredients": [
     {
-      "item": "corndelight:corn_seeds"
+      "tag": "c:seeds/corn"
     },
     {
       "item": "minecraft:sugar"

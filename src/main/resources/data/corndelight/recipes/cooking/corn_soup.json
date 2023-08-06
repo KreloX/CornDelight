@@ -2,7 +2,7 @@
   "type": "farmersdelight:cooking",
   "ingredients": [
     {
-      "item": "corndelight:corn"
+      "tag": "c:crops/corn"
     },
     {
       "tag": "c:crops/cabbage"
@@ -22,7 +22,7 @@
       }
     ],
     {
-      "tag": "c:milk_buckets"
+      "tag": "c:milk"
     }
   ],
   "result": {

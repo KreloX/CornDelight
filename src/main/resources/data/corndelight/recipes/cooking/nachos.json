@@ -7,20 +7,9 @@
     {
       "item": "corndelight:tortilla_chip"
     },
-    [
-      {
-        "tag": "c:cooked_chicken"
-      },
-      {
-        "tag": "c:cooked_pork"
-      },
-      {
-        "tag": "c:cooked_beef"
-      },
-      {
-        "tag": "c:cooked_mutton"
-      }
-    ],
+    {
+      "tag": "corndelight:corn_delight_meat"
+    },
     {
       "tag": "c:milk"
     },

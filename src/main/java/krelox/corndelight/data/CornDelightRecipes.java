@@ -1,5 +1,6 @@
 package krelox.corndelight.data;
 
+import krelox.corndelight.CornDelightTags;
 import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -10,12 +11,8 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
@@ -46,10 +43,11 @@ public class CornDelightRecipes extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, CornDelightItems.CORNBREAD_BATTER, 3)
-                .input(CornDelightItems.CORN, 2)
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "milk")))
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "eggs")))
-                .criterion(hasItem(CornDelightItems.CORN), conditionsFromItem(CornDelightItems.CORN))
+                .input(CornDelightTags.Items.CORN)
+                .input(CornDelightTags.Items.CORN)
+                .input(CornDelightTags.Items.MILK)
+                .input(CornDelightTags.Items.EGGS)
+                .criterion(hasItem(CornDelightItems.CORN), conditionsFromTag(CornDelightTags.Items.CORN))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, CornDelightBlocks.POPCORN_BOX)
@@ -60,9 +58,9 @@ public class CornDelightRecipes extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, CornDelightItems.TACO)
                 .input(CornDelightItems.TORTILLA)
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "crops/cabbage")))
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "vegetables/onion")))
-                .input(Ingredient.ofItems(Items.COOKED_CHICKEN, Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP))
+                .input(CornDelightTags.Items.CABBAGE)
+                .input(CornDelightTags.Items.ONION)
+                .input(CornDelightTags.Items.CORN_DELIGHT_MEAT)
                 .criterion(hasItem(CornDelightItems.TORTILLA), conditionsFromItem(CornDelightItems.TORTILLA))
                 .offerTo(exporter);
 
@@ -70,7 +68,7 @@ public class CornDelightRecipes extends FabricRecipeProvider {
                 .input('#', CornDelightItems.CORN).input('W', ConventionalItemTags.WATER_BUCKETS)
                 .pattern("###")
                 .pattern(" W ")
-                .criterion(hasItem(CornDelightItems.CORN), conditionsFromItem(CornDelightItems.CORN))
+                .criterion(hasItem(CornDelightItems.CORN), conditionsFromTag(CornDelightTags.Items.CORN))
                 .offerTo(exporter);
     }
 
