@@ -36,10 +36,10 @@ public class CornDelightItems {
             new Item(foodSettings(foodBuilder(6, 0.2F))));
 
     public static final Item POPCORN = registerItem("popcorn",
-            new Item(foodSettings(foodBuilder(3, 0.5F))));
+            new Item(foodSettings(foodBuilder(3, 0.5F).snack())));
 
     public static final Item CARAMEL_POPCORN = registerItem("caramel_popcorn",
-            new Item(foodSettings(foodBuilder(5, 0.6F))));
+            new Item(foodSettings(foodBuilder(5, 0.6F).snack())));
 
     public static final Item CREAMED_CORN = registerItem("creamed_corn",
             new ConsumableItem(foodSettings(foodBuilder(7, 0.5F)
@@ -85,7 +85,7 @@ public class CornDelightItems {
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item TORTILLA_CHIP = registerItem("tortilla_chip",
-            new Item(foodSettings(foodBuilder(1, 0.1F))));
+            new Item(foodSettings(foodBuilder(1, 0.1F).snack())));
 
     public static final Item NACHOS_BOWL = registerItem("nachos_bowl",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)
