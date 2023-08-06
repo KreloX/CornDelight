@@ -3,11 +3,11 @@
 	"id": "corndelight",
 	"version": "${version}",
 	"name": "Corn Delight",
-	"description": "Port of Corn Delight to Fabric and Quilt",
+	"description": "An a-maize-ing Farmer's Delight addon. Port of Corn Delight to Fabric and Quilt",
 	"authors": [
-		"KreloX",
-		"sz0999312",
-		"yuriscat"
+		"KreloX (Author)",
+		"sz0999312 (Original Author)",
+		"yuriscat (Artist)"
 	],
 	"contact": {
 		"homepage": "https://legacy.curseforge.com/minecraft/mc-mods/corn-delight-fabric",
