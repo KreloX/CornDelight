@@ -3,7 +3,7 @@
 	"id": "corndelight",
 	"version": "${version}",
 	"name": "Corn Delight",
-	"description": "An a-maize-ing Farmer's Delight addon. Port of Corn Delight to Fabric and Quilt",
+	"description": "An a-maize-ing Farmer's Delight addon. Rewrite of Corn Delight for Fabric and Quilt",
 	"authors": [
 		"KreloX (Author)",
 		"sz0999312 (Original Author)",
@@ -14,7 +14,7 @@
 		"sources": "https://github.com/KreloX/CornDelight",
 		"issues": "https://github.com/KreloX/CornDelight/issues"
 	},
-	"license": "MIT",
+	"license": "MIT License",
 	"icon": "assets/corndelight/icon.png",
 	"environment": "*",
 	"entrypoints": {
