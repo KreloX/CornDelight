@@ -14,7 +14,6 @@ public class CornDelightLang extends FabricLanguageProvider {
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(CornDelightBlocks.CORN_CROP, "Corn");
-        translationBuilder.add("itemgroup.corn_delight", "Corn Delight");
         CornDelightItems.items.forEach(item -> translationBuilder.add(item, formatName(item.toString())));
     }
 

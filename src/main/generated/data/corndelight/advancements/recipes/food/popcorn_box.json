@@ -30,6 +30,5 @@
     "recipes": [
       "corndelight:popcorn_box"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -28,6 +28,5 @@
     "recipes": [
       "corndelight:cornbread_batter"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -28,6 +28,5 @@
     "recipes": [
       "corndelight:raw_tortilla"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
