@@ -1,4 +1,4 @@
-# CornDelight
+# Corn Delight [Fabric/Quilt]
 ![download counter](https://cf.way2muchnoise.eu/full_899614_downloads.svg) 
 ![availability](https://cf.way2muchnoise.eu/versions/899614_all.svg)
 
