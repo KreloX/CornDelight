@@ -40,6 +40,6 @@ public class CornDelightLoot extends FabricBlockLootTableProvider {
                 .properties(StatePredicate.Builder.create().exactMatch(FeastBlock.SERVINGS, 4));
         addDrop(CornDelightBlocks.NACHOS, block -> applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachos_builder)
-                        .alternatively(ItemEntry.builder(Items.STICK))))));
+                        .alternatively(ItemEntry.builder(Items.BOWL))))));
     }
 }
