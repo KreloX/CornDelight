@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_corn_kernel_bag": {
+    "has_corn": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "corndelight:corn_kernel_bag"
-            ]
+            "tag": "c:crops/corn"
           }
         ]
       },
@@ -15,21 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:corn_seeds"
+        "recipe": "corndelight:raw_tortilla"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_corn_kernel_bag",
+      "has_corn",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:corn_seeds"
+      "corndelight:raw_tortilla"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

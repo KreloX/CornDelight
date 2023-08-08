@@ -1,5 +1,6 @@
 package krelox.corndelight.block;
 
+import com.nhoryzon.mc.farmersdelight.FarmersDelightMod;
 import com.nhoryzon.mc.farmersdelight.block.FeastBlock;
 import com.nhoryzon.mc.farmersdelight.block.WildCropBlock;
 import com.nhoryzon.mc.farmersdelight.registry.BlocksRegistry;
@@ -9,11 +10,10 @@ import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -46,12 +46,12 @@ public class CornDelightBlocks {
     public static final Block POPCORN_BOX = registerBlockWithItem("popcorn_box", new PopcornBoxBlock());
 
     private static Block registerBlockWithItem(String name, Block block) {
-        CornDelightItems.registerItem(name, new BlockItem(block, new Item.Settings()));
+        CornDelightItems.registerItem(name, new BlockItem(block, new Item.Settings().group(FarmersDelightMod.ITEM_GROUP)));
         return registerBlock(name, block);
     }
 
     private static Block registerBlock(String name, Block block) {
-        return Registry.register(Registries.BLOCK, new Identifier(CornDelight.MODID, name), block);
+        return Registry.register(Registry.BLOCK, new Identifier(CornDelight.MODID, name), block);
     }
 
     public static void registerBlocks() {

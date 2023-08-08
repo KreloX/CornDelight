@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_corn_seeds": {
+    "has_corn": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "corndelight:corn_seeds"
-            ]
+            "tag": "c:crops/corn"
           }
         ]
       },
@@ -15,21 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:popcorn_from_smelting"
+        "recipe": "corndelight:cornbread_batter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_corn_seeds",
+      "has_corn",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:popcorn_from_smelting"
+      "corndelight:cornbread_batter"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

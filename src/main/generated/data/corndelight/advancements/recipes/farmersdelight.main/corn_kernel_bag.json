@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_corn": {
+    "has_corn_seeds": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:corn"
+              "corndelight:corn_seeds"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:grilled_corn_from_campfire_cooking"
+        "recipe": "minecraft:corn_kernel_bag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_corn",
+      "has_corn_seeds",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:grilled_corn_from_campfire_cooking"
+      "minecraft:corn_kernel_bag"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

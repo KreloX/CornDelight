@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_tortilla": {
+    "has_corn_seeds": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:raw_tortilla"
+              "corndelight:corn_seeds"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tortilla_from_smelting"
+        "recipe": "minecraft:popcorn_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_raw_tortilla",
+      "has_corn_seeds",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tortilla_from_smelting"
+      "minecraft:popcorn_from_smoking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_caramel_popcorn": {
+    "has_corn": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:caramel_popcorn"
+              "corndelight:corn"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "corndelight:popcorn_box"
+        "recipe": "minecraft:grilled_corn_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_caramel_popcorn",
+      "has_corn",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "corndelight:popcorn_box"
+      "minecraft:grilled_corn_from_smoking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

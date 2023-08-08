@@ -1,35 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "corndelight:taco"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tortilla": {
+    "has_corn_crate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:tortilla"
+              "corndelight:corn_crate"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:corn"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_tortilla",
+      "has_corn_crate",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "corndelight:taco"
+      "minecraft:corn"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "corndelight:corn"
@@ -16,6 +15,5 @@
   "result": {
     "count": 3,
     "item": "corndelight:raw_tortilla"
-  },
-  "show_notification": true
+  }
 }

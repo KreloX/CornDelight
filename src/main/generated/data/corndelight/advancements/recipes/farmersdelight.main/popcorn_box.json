@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_tortilla": {
+    "has_caramel_popcorn": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:raw_tortilla"
+              "corndelight:caramel_popcorn"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tortilla_from_campfire_cooking"
+        "recipe": "corndelight:popcorn_box"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_raw_tortilla",
+      "has_caramel_popcorn",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tortilla_from_campfire_cooking"
+      "corndelight:popcorn_box"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

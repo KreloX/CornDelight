@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:popcorn_from_smoking"
+        "recipe": "minecraft:popcorn_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,8 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:popcorn_from_smoking"
+      "minecraft:popcorn_from_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

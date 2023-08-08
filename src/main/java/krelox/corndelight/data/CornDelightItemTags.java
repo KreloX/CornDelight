@@ -2,20 +2,17 @@ package krelox.corndelight.data;
 
 import krelox.corndelight.CornDelightTags;
 import krelox.corndelight.item.CornDelightItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryWrapper;
-
-import java.util.concurrent.CompletableFuture;
 
 public class CornDelightItemTags extends FabricTagProvider.ItemTagProvider {
-    public CornDelightItemTags(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
-        super(output, completableFuture);
+    public CornDelightItemTags(FabricDataGenerator dataGenerator) {
+        super(dataGenerator);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup arg) {
+    protected void generateTags() {
         getOrCreateTagBuilder(CornDelightTags.Items.CORN).add(CornDelightItems.CORN);
         getOrCreateTagBuilder(CornDelightTags.Items.CORN_SEEDS).add(CornDelightItems.CORN_SEEDS);
         getOrCreateTagBuilder(CornDelightTags.Items.COOKED_CHICKEN).add(Items.COOKED_CHICKEN);

@@ -5,7 +5,7 @@ import krelox.corndelight.CornDelight;
 import krelox.corndelight.block.CornCropBlock;
 import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
@@ -17,8 +17,8 @@ import net.minecraft.util.Identifier;
 import java.util.Optional;
 
 public class CornDelightModels extends FabricModelProvider {
-    public CornDelightModels(FabricDataOutput output) {
-        super(output);
+    public CornDelightModels(FabricDataGenerator dataGenerator) {
+        super(dataGenerator);
     }
 
     @Override

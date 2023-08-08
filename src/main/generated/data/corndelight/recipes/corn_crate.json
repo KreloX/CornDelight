@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "corndelight:corn"
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "corndelight:corn_crate"
-  },
-  "show_notification": true
+  }
 }

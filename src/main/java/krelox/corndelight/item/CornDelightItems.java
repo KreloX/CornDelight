@@ -1,5 +1,6 @@
 package krelox.corndelight.item;
 
+import com.nhoryzon.mc.farmersdelight.FarmersDelightMod;
 import com.nhoryzon.mc.farmersdelight.item.ConsumableItem;
 import com.nhoryzon.mc.farmersdelight.item.DrinkableItem;
 import com.nhoryzon.mc.farmersdelight.registry.EffectsRegistry;
@@ -8,9 +9,8 @@ import krelox.corndelight.block.CornDelightBlocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class CornDelightItems {
     public static List<Item> items = new ArrayList<>();
 
     public static final Item NACHOS = registerItem("nachos",
-            new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1)));
+            new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1).group(FarmersDelightMod.ITEM_GROUP)));
 
     public static final Item CORN = registerItem("corn",
             new Item(foodSettings(foodBuilder(2, 0.2F))));
@@ -93,7 +93,7 @@ public class CornDelightItems {
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     private static Item.Settings foodSettings(FoodComponent.Builder food) {
-        return new Item.Settings().food(food.build());
+        return new Item.Settings().food(food.build()).group(FarmersDelightMod.ITEM_GROUP);
     }
 
     private static FoodComponent.Builder foodBuilder(int hunger, float saturation) {
@@ -102,7 +102,7 @@ public class CornDelightItems {
 
     public static Item registerItem(String name, Item item) {
         items.add(item);
-        return Registry.register(Registries.ITEM, new Identifier(CornDelight.MODID, name), item);
+        return Registry.register(Registry.ITEM, new Identifier(CornDelight.MODID, name), item);
     }
 
     public static void registerItems() {

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cornbread_batter": {
+    "has_popcorn": {
       "conditions": {
         "items": [
           {
             "items": [
-              "corndelight:cornbread_batter"
+              "corndelight:popcorn"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cornbread_from_smoking"
+        "recipe": "corndelight:caramel_popcorn"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cornbread_batter",
+      "has_popcorn",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cornbread_from_smoking"
+      "corndelight:caramel_popcorn"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
