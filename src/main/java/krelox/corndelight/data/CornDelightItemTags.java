@@ -1,6 +1,8 @@
 package krelox.corndelight.data;
 
+import com.nhoryzon.mc.farmersdelight.registry.TagsRegistry;
 import krelox.corndelight.CornDelightTags;
+import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -27,5 +29,7 @@ public class CornDelightItemTags extends FabricTagProvider.ItemTagProvider {
                 .addTag(CornDelightTags.Items.COOKED_BEEF)
                 .addTag(CornDelightTags.Items.COOKED_MUTTON)
                 .addTag(CornDelightTags.Items.COOKED_PORK);
+
+        getOrCreateTagBuilder(TagsRegistry.WILD_CROPS_ITEM).add(CornDelightBlocks.WILD_CORN.asItem());
     }
 }
