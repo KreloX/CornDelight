@@ -12,5 +12,6 @@ public class CornDelightDataGenerator implements DataGeneratorEntrypoint {
         generator.addProvider(CornDelightModels::new);
         generator.addProvider(CornDelightRecipes::new);
         generator.addProvider(CornDelightItemTags::new);
+        generator.addProvider(CornDelightBlockTags::new);
     }
 }
