@@ -20,9 +20,6 @@ public class CornDelightItems {
 
     public static List<Item> items = new ArrayList<>();
 
-    public static final Item NACHOS = registerItem("nachos",
-            new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1).group(FarmersDelightMod.ITEM_GROUP)));
-
     public static final Item CORN = registerItem("corn",
             new Item(foodSettings(foodBuilder(2, 0.2F))));
 

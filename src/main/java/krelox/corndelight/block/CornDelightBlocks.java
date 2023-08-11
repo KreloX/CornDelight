@@ -21,7 +21,7 @@ import net.minecraft.world.BlockView;
 public class CornDelightBlocks {
 
     public static final Block CORN_CROP = registerBlock("corn_crop",
-            new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT), CornDelightItems.CORN_SEEDS));
+            new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
     public static final Block WILD_CORN = registerBlockWithItem("wild_corn", new WildCropBlock());
     public static final Block CORN_CRATE = registerBlockWithItem("corn_crate",
             new Block(AbstractBlock.Settings.copy(BlocksRegistry.CARROT_CRATE.get())));
@@ -43,6 +43,8 @@ public class CornDelightBlocks {
             return new ItemStack(CornDelightItems.NACHOS_BOWL);
         }
     });
+    public static final Item NACHOS_ITEM = CornDelightItems.registerItem("nachos",
+            new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1).group(FarmersDelightMod.ITEM_GROUP)));
     public static final Block POPCORN_BOX = registerBlockWithItem("popcorn_box", new PopcornBoxBlock());
 
     private static Block registerBlockWithItem(String name, Block block) {
