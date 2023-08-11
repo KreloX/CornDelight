@@ -1,5 +1,6 @@
 package krelox.corndelight.block;
 
+import krelox.corndelight.item.CornDelightItems;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
@@ -14,8 +15,6 @@ import net.minecraft.world.WorldView;
 
 public class CornCropBlock extends CropBlock {
 
-    private final ItemConvertible seedItem;
-
     public static final BooleanProperty UPPER = BooleanProperty.of("upper");
 
     private static final VoxelShape[] UPPER_SHAPE_BY_AGE = new VoxelShape[]{
@@ -29,15 +28,14 @@ public class CornCropBlock extends CropBlock {
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D)
     };
 
-    public CornCropBlock(Settings settings, ItemConvertible seed) {
+    public CornCropBlock(Settings settings) {
         super(settings);
-        this.seedItem = seed;
         this.setDefaultState(this.getStateManager().getDefaultState().with(AGE, 0).with(UPPER, false));
     }
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return seedItem;
+        return CornDelightItems.CORN_SEEDS;
     }
 
     public BooleanProperty getUpperProperty() {
