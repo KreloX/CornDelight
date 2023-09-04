@@ -97,7 +97,7 @@ public class CornCropBlock extends CropBlock {
             return;
         if (age >= this.getGrowUpperAge()) {
             if (random.nextInt((int) (25.0F / f) + 1) == 0) {
-                if (world.isAir(pos.up())) {
+                if (this.getDefaultState().with(this.getUpperProperty(), true).canPlaceAt(world, pos.up()) && world.isAir(pos.up())) {
                     world.setBlockState(pos.up(), this.getDefaultState().with(this.getUpperProperty(), true));
                 }
             }
