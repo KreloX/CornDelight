@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "corndelight:tortilla"
-    },
-    {
-      "tag": "c:crops/cabbage"
-    },
-    {
-      "tag": "c:crops/onion"
-    },
-    {
-      "tag": "corndelight:foods/tortilla_meats"
-    }
+    "corndelight:tortilla",
+    "#c:crops/cabbage",
+    "#c:crops/onion",
+    "#corndelight:foods/tortilla_meats"
   ],
   "result": {
     "count": 1,

@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "cookingtime": 400,
+  "experience": 0.35,
+  "ingredients": [
+    "corndelight:corn_seeds",
+    "#c:foods/milk",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "count": 1,
+    "id": "corndelight:creamy_corn_drink"
+  }
+}

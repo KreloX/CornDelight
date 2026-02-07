@@ -16,8 +16,8 @@ public class CornDelightBlockTags extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ModTags.WILD_CROPS).add(CornDelightBlocks.WILD_CORN);
+        valueLookupBuilder(ModTags.WILD_CROPS).add(CornDelightBlocks.WILD_CORN);
 
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS_BLOCK).add(CornDelightBlocks.CORN_CROP);
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS_BLOCK).add(CornDelightBlocks.CORN_CROP);
     }
 }

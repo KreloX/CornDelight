@@ -28,7 +28,7 @@ public class CornCropBlock extends CropBlock {
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
     };
 
-    private static final VoxelShape[] UPPER_SHAPE_TO_AGE = new VoxelShape[]{
+    private static final VoxelShape[] UPPER_SHAPE_TO_AGE = new VoxelShape[] {
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
@@ -64,87 +64,180 @@ public class CornCropBlock extends CropBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return state.get(UPPER) ? UPPER_SHAPE_TO_AGE[state.get(this.getAgeProperty())] : SHAPE_TO_AGE[state.get(this.getAgeProperty())];
+        return state.get(UPPER)
+                ? UPPER_SHAPE_TO_AGE[state.get(this.getAgeProperty())]
+                : SHAPE_TO_AGE[state.get(this.getAgeProperty())];
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos downpos = pos.down();
-        if (world.getBlockState(downpos).isOf(this) && state.get(this.getUpperProperty()))
-            return !world.getBlockState(downpos).get(this.getUpperProperty())
-                    && (world.getBaseLightLevel(pos, 0) >= 8 || world.isSkyVisible(pos))
-                    && this.getAge(world.getBlockState(downpos)) >= this.getGrowUpperAge();
+        // Custom rules for the upper half.
+        if (state.get(this.getUpperProperty())) {
+            BlockPos down = pos.down();
+            BlockState below = world.getBlockState(down);
+            if (!below.isOf(this)) return false;
+            if (below.get(this.getUpperProperty())) return false; // below must be base
+            return (world.getBaseLightLevel(pos, 0) >= 8 || world.isSkyVisible(pos))
+                    && this.getAge(below) >= this.getGrowUpperAge();
+        }
+
+        // Base uses vanilla CropBlock placement.
         return super.canPlaceAt(state, world, pos);
     }
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return !state.get(this.getUpperProperty()) || !this.isMature(state);
+        return !state.get(this.getUpperProperty());
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int age = this.getAge(state);
-        float f = getAvailableMoisture(this, world, pos);
-        if (world.getBaseLightLevel(pos, 0) >= 9) {
-            if (age < this.getMaxAge()) {
-                if (random.nextInt((int) (25.0F / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(age + 1).with(this.getUpperProperty(), state.get(this.getUpperProperty())), 2);
+        if (state.get(this.getUpperProperty())) return; // safety: upper doesn't tick
+
+        // Ensure upper exists once base reaches the threshold (no RNG delay)
+        ensureUpper(world, pos, state);
+
+        if (world.getBaseLightLevel(pos, 0) < 9) return;
+
+        float moisture = getAvailableMoisture(this, world, pos);
+        // If upper exists, simulate 2 tickers by making 2 independent growth rolls.
+        int rolls = hasUpper(world, pos) ? 2 : 1;
+
+        for (int i = 0; i < rolls; i++) {
+            // re-fetch base state in case it changed during the first roll
+            BlockState baseState = world.getBlockState(pos);
+            int baseAge = this.getAge(baseState);
+
+            // If the whole plant is already fully mature, stop rolling
+            if (baseAge >= this.getMaxAge()) {
+                BlockState upper = world.getBlockState(pos.up());
+                if (!(upper.isOf(this) && upper.get(this.getUpperProperty()) && !this.isMature(upper))) {
+                    return;
                 }
             }
+
+            if (random.nextInt((int)(25.0F / moisture) + 1) == 0) {
+                applyDistributedGrowth(world, pos, baseState, 1, random);
+            }
         }
-        if (state.get(this.getUpperProperty()))
-            return;
-        if (age >= this.getGrowUpperAge()) {
-            if (random.nextInt((int) (25.0F / f) + 1) == 0) {
-                if (this.getDefaultState().with(this.getUpperProperty(), true).canPlaceAt(world, pos.up()) && world.isAir(pos.up())) {
-                    world.setBlockState(pos.up(), this.getDefaultState().with(this.getUpperProperty(), true));
+    }
+
+    private boolean hasUpper(WorldView world, BlockPos basePos) {
+        BlockState up = world.getBlockState(basePos.up());
+        return up.isOf(this) && up.get(this.getUpperProperty());
+    }
+
+    private void ensureUpper(ServerWorld world, BlockPos basePos, BlockState baseState) {
+        if (baseState.get(this.getUpperProperty())) return; // base only
+        if (this.getAge(baseState) < this.getGrowUpperAge()) return;
+
+        BlockPos up = basePos.up();
+        if (!world.isAir(up)) return;
+
+        BlockState upper = this.getDefaultState()
+                .with(this.getUpperProperty(), true)
+                .with(this.getAgeProperty(), 0);
+
+        if (upper.canPlaceAt(world, up)) {
+            world.setBlockState(up, upper, 3);
+        }
+    }
+
+    private void applyDistributedGrowth(ServerWorld world, BlockPos basePos, BlockState baseState, int steps, Random random) {
+        int max = this.getMaxAge();
+
+        for (int i = 0; i < steps; i++) {
+            int baseAge = this.getAge(baseState);
+
+            // Phase 1: grow base up to the threshold first
+            if (baseAge < this.getGrowUpperAge()) {
+                int next = Math.min(baseAge + 1, max);
+                baseState = baseState.with(this.getAgeProperty(), next).with(this.getUpperProperty(), false);
+                world.setBlockState(basePos, baseState, 3);
+
+                // If we just crossed the threshold, spawn upper right away
+                ensureUpper(world, basePos, baseState);
+                continue;
+            }
+
+            // Phase 2: ensure upper exists
+            ensureUpper(world, basePos, baseState);
+
+            BlockPos up = basePos.up();
+            BlockState upperState = world.getBlockState(up);
+            boolean upperOk = upperState.isOf(this) && upperState.get(this.getUpperProperty());
+
+            // If upper can't exist (blocked), just keep base growing normally.
+            if (!upperOk) {
+                if (baseAge < max) {
+                    int next = Math.min(baseAge + 1, max);
+                    baseState = baseState.with(this.getAgeProperty(), next).with(this.getUpperProperty(), false);
+                    world.setBlockState(basePos, baseState, 3);
                 }
+                continue;
+            }
+
+            int upperAge = this.getAge(upperState);
+
+            boolean baseDone = baseAge >= max;
+            boolean upperDone = upperAge >= max;
+
+            // If one side is done, grow the other.
+            if (baseDone && !upperDone) {
+                upperState = upperState.with(this.getAgeProperty(), Math.min(upperAge + 1, max)).with(this.getUpperProperty(), true);
+                world.setBlockState(up, upperState, 3);
+                continue;
+            }
+            if (!baseDone && upperDone) {
+                baseState = baseState.with(this.getAgeProperty(), Math.min(baseAge + 1, max)).with(this.getUpperProperty(), false);
+                world.setBlockState(basePos, baseState, 3);
+                continue;
+            }
+
+            // Both still growing: weighted by remaining so they mature around the same time.
+            int baseRemaining = max - baseAge;
+            int upperRemaining = max - upperAge;
+
+            int roll = random.nextInt(baseRemaining + upperRemaining);
+            boolean growUpper = roll < upperRemaining;
+
+            if (growUpper) {
+                upperState = upperState.with(this.getAgeProperty(), Math.min(upperAge + 1, max)).with(this.getUpperProperty(), true);
+                world.setBlockState(up, upperState, 3);
+            } else {
+                baseState = baseState.with(this.getAgeProperty(), Math.min(baseAge + 1, max)).with(this.getUpperProperty(), false);
+                world.setBlockState(basePos, baseState, 3);
             }
         }
     }
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        BlockState upperState = world.getBlockState(pos.up());
-        if (upperState.isOf(this)) {
-            return !(this.isMature(upperState));
+        BlockPos basePos = state.get(this.getUpperProperty()) ? pos.down() : pos;
+        BlockState base = world.getBlockState(basePos);
+        if (!base.isOf(this) || base.get(this.getUpperProperty())) return false;
+
+        BlockState upper = world.getBlockState(basePos.up());
+        if (upper.isOf(this) && upper.get(this.getUpperProperty())) {
+            return !this.isMature(upper);
         }
-        if (state.get(this.getUpperProperty())) {
-            return !(this.isMature(state));
-        }
-        return true;
+
+        return !this.isMature(base) || this.getAge(base) >= this.getGrowUpperAge();
     }
 
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return true;
     }
-
+    
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int ageGrowth = Math.min(this.getAge(state) + this.getGrowthAmount(world), 15);
-        if (ageGrowth <= this.getMaxAge()) {
-            world.setBlockState(pos, state.with(AGE, ageGrowth));
-        } else {
-            world.setBlockState(pos, state.with(AGE, this.getMaxAge()));
-            if (state.get(this.getUpperProperty())) {
-                return;
-            }
-            BlockState top = world.getBlockState(pos.up());
-            if (top.isOf(this)) {
-                Fertilizable growable = (Fertilizable) top.getBlock();
-                if (growable.isFertilizable(world, pos.up(), top)) {
-                    growable.grow(world, world.random, pos.up(), top);
-                }
-            } else {
-                int remainingGrowth = ageGrowth - this.getMaxAge() - 1;
-                if (this.getDefaultState().canPlaceAt(world, pos.up()) && world.isAir(pos.up())) {
-                    world.setBlockState(pos.up(), this.getDefaultState()
-                            .with(this.getUpperProperty(), true)
-                            .with(this.getAgeProperty(), remainingGrowth), 3);
-                }
-            }
-        }
+        BlockPos basePos = state.get(this.getUpperProperty()) ? pos.down() : pos;
+        BlockState base = world.getBlockState(basePos);
+        if (!base.isOf(this) || base.get(this.getUpperProperty())) return;
+
+        int steps = this.getGrowthAmount(world);
+        applyDistributedGrowth(world, basePos, base, steps, random);
     }
 }
+

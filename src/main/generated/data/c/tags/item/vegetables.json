@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#c:foods/tomato",
+      "required": false
+    },
+    {
+      "id": "#c:foods/onion",
+      "required": false
+    },
+    {
+      "id": "#c:foods/cabbage",
+      "required": false
+    }
+  ]
+}

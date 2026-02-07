@@ -1,22 +1,22 @@
 {
 	"schemaVersion": 1,
 	"id": "corndelight",
-	"version": "$mod_version",
+	"version": "${mod_version}",
 	"name": "Corn Delight",
-	"description": "$mod_description",
+	"description": "${mod_description}",
 	"authors": [
-		"$mod_authors"
+		"${mod_authors}"
 	],
     "contributors": [
-        "$mod_credits"
+        "${mod_credits}"
     ],
 	"contact": {
-		"homepage": "$mod_homepage",
-		"sources": "$mod_github",
-		"issues": "$mod_github/issues"
+		"homepage": "${mod_homepage}",
+		"sources": "${mod_github}",
+		"issues": "${mod_github}/issues"
 	},
-	"license": "$mod_license",
-	"icon": "assets/$mod_id/icon.png",
+	"license": "${mod_license}",
+	"icon": "assets/corndelight/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -31,10 +31,10 @@
 	},
 	"mixins": [],
 	"depends": {
-		"fabricloader": ">=$loader_version",
-		"minecraft": ">=$minecraft_min_version <$minecraft_max_version",
+		"fabricloader": ">=${loader_version}",
+		"minecraft": ">=${minecraft_min_version} <=${minecraft_max_version}",
 		"java": ">=21",
 		"fabric-api": "*",
-		"farmersdelight": ">=$fdrf_version"
+		"farmersdelight": ">=${fdrf_version}"
 	}
 }

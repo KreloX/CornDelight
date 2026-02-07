@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 200,
   "experience": 0.5,
-  "ingredient": {
-    "item": "corndelight:corn"
-  },
+  "ingredient": "corndelight:corn",
   "result": {
     "id": "corndelight:grilled_corn"
   }

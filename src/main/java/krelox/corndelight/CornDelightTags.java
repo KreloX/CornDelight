@@ -10,6 +10,7 @@ public class CornDelightTags {
         public static final TagKey<Item> CORN = createCommonTag("crops/corn");
         public static final TagKey<Item> CORN_SEEDS = createCommonTag("seeds/corn");
         public static final TagKey<Item> FOODS_TORTILLA_MEATS = createTag("foods/tortilla_meats");
+        public static final TagKey<Item> VEGETABLES = createCommonTag("vegetables");
 
         private static TagKey<Item> createTag(String path) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(CornDelight.MODID, path));

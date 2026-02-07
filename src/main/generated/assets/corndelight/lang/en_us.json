@@ -1,10 +1,5 @@
 {
-  "block.corndelight.corn_crate": "Corn Crate",
   "block.corndelight.corn_crop": "Corn",
-  "block.corndelight.corn_kernel_bag": "Corn Kernel Bag",
-  "block.corndelight.nachos_block": "Nachos Block",
-  "block.corndelight.popcorn_box": "Popcorn Box",
-  "block.corndelight.wild_corn": "Wild Corn",
   "corndelight.block.popcorn.barehand": "Use your bare hand to eat popcorn.",
   "item.corndelight.boiled_corn": "Boiled Corn",
   "item.corndelight.caramel_popcorn": "Caramel Popcorn",
@@ -19,7 +14,6 @@
   "item.corndelight.creamed_corn": "Creamed Corn",
   "item.corndelight.creamy_corn_drink": "Creamy Corn Drink",
   "item.corndelight.grilled_corn": "Grilled Corn",
-  "item.corndelight.nachos_bowl": "Nachos Bowl",
   "item.corndelight.popcorn": "Popcorn",
   "item.corndelight.raw_tortilla": "Raw Tortilla",
   "item.corndelight.taco": "Taco",

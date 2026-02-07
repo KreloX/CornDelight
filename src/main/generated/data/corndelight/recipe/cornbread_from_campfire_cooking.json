@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.5,
-  "ingredient": {
-    "item": "corndelight:cornbread_batter"
-  },
+  "ingredient": "corndelight:cornbread_batter",
   "result": {
     "id": "corndelight:cornbread"
   }

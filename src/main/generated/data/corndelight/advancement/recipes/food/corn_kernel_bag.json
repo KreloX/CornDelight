@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:corn_kernel_bag"
+        "recipe": "corndelight:corn_kernel_bag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:corn_kernel_bag"
+      "corndelight:corn_kernel_bag"
     ]
   }
 }

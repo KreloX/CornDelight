@@ -1,0 +1,12 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.35,
+  "ingredients": [
+    "corndelight:corn",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "count": 1,
+    "id": "corndelight:boiled_corn"
+  }
+}

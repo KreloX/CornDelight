@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 100,
   "experience": 0.5,
-  "ingredient": {
-    "item": "corndelight:corn_seeds"
-  },
+  "ingredient": "corndelight:corn_seeds",
   "result": {
     "id": "corndelight:popcorn"
   }

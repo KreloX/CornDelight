@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "corndelight:popcorn"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
+    "corndelight:popcorn",
+    "minecraft:sugar"
   ],
   "result": {
     "count": 1,

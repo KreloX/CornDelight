@@ -1,10 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "corndelight",
   "ingredients": [
-    {
-      "item": "corndelight:corn"
-    }
+    "corndelight:corn"
   ],
   "result": {
     "count": 1,

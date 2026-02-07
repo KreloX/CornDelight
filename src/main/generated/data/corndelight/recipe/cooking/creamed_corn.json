@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 0.35,
+  "ingredients": [
+    "corndelight:corn_seeds",
+    "corndelight:corn_seeds",
+    "#c:foods/milk"
+  ],
+  "result": {
+    "count": 1,
+    "id": "corndelight:creamed_corn"
+  }
+}

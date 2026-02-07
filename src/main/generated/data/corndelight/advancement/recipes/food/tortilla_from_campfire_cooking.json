@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tortilla_from_campfire_cooking"
+        "recipe": "corndelight:tortilla_from_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tortilla_from_campfire_cooking"
+      "corndelight:tortilla_from_campfire_cooking"
     ]
   }
 }

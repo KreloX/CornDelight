@@ -2,6 +2,7 @@ package krelox.corndelight;
 
 import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
+import krelox.corndelight.itemGroup.CornDelightItemGroups;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -28,6 +29,7 @@ public class CornDelight implements ModInitializer {
     public void onInitialize() {
         CornDelightItems.registerItems();
         CornDelightBlocks.registerBlocks();
+        CornDelightItemGroups.register();
 
         registerCompostables();
 

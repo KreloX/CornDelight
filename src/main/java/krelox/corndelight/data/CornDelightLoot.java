@@ -25,6 +25,8 @@ public class CornDelightLoot extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+        var WITH_SHEARS = createWithShearsCondition();
+
         LootCondition.Builder cornBuilder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.CORN_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(CropBlock.AGE, 7));
         addDrop(CornDelightBlocks.CORN_CROP, block -> cropDrops(block, CornDelightItems.CORN, CornDelightItems.CORN_SEEDS, cornBuilder));
@@ -39,10 +41,10 @@ public class CornDelightLoot extends FabricBlockLootTableProvider {
         addDrop(CornDelightBlocks.CORN_CRATE, this::drops);
         addDrop(CornDelightBlocks.CORN_KERNEL_BAG, this::drops);
 
-        BlockStatePropertyLootCondition.Builder nachosBuilder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS_BLOCK)
-                .properties(StatePredicate.Builder.create().exactMatch(FeastBlock.SERVINGS, 4));
-        addDrop(CornDelightBlocks.NACHOS_BLOCK, block -> applyExplosionDecay(block, LootTable.builder()
-                .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachosBuilder)
-                        .alternatively(ItemEntry.builder(Items.BOWL))))));
+//        BlockStatePropertyLootCondition.Builder nachosBuilder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS_BLOCK)
+//                .properties(StatePredicate.Builder.create().exactMatch(FeastBlock.SERVINGS, 4));
+//        addDrop(CornDelightBlocks.NACHOS_BLOCK, block -> applyExplosionDecay(block, LootTable.builder()
+//                .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachosBuilder)
+//                        .alternatively(ItemEntry.builder(Items.BOWL))))));
     }
 }

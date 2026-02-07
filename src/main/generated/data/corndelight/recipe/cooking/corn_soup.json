@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 0.35,
+  "ingredients": [
+    "corndelight:corn_seeds",
+    "#c:foods/milk",
+    "#corndelight:foods/tortilla_meats",
+    "#c:vegetables",
+    "minecraft:brown_mushroom"
+  ],
+  "result": {
+    "count": 1,
+    "id": "corndelight:corn_soup"
+  }
+}

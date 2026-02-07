@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:grilled_corn_from_campfire_cooking"
+        "recipe": "corndelight:grilled_corn_from_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:grilled_corn_from_campfire_cooking"
+      "corndelight:grilled_corn_from_campfire_cooking"
     ]
   }
 }

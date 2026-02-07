@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:crops/corn"
-    },
-    {
-      "tag": "c:crops/corn"
-    },
-    {
-      "tag": "c:foods/milk"
-    },
-    {
-      "item": "minecraft:egg"
-    }
+    "#c:crops/corn",
+    "#c:crops/corn",
+    "#c:foods/milk",
+    "minecraft:egg"
   ],
   "result": {
     "count": 3,

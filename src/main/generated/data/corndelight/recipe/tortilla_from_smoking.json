@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 100,
   "experience": 0.5,
-  "ingredient": {
-    "item": "corndelight:raw_tortilla"
-  },
+  "ingredient": "corndelight:raw_tortilla",
   "result": {
     "id": "corndelight:tortilla"
   }
